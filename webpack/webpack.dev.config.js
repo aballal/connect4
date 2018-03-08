@@ -1,9 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const srcDir = path.join(__dirname, '../src')
+
 module.exports = {
     entry: [
-        path.join(__dirname, '../src/index.js')
+        path.join(srcDir, 'index.js')
     ],
     module: {
       rules: [
@@ -19,11 +21,11 @@ module.exports = {
       ],
     },
     output: {
-        path: __dirname + '/dist',
+        path: srcDir + '/dist',
         filename: 'bundle.js'
     },
     devServer: {
-        contentBase: __dirname + '/dist',
+        contentBase: srcDir,
         historyApiFallback: true
     }
 };
