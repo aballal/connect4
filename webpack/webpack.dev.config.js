@@ -1,20 +1,22 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
     entry: [
         path.join(__dirname, '../src/index.js')
     ],
     module: {
-		loaders: [{
-			test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
-				loader: 'babel-loader'
-			},{
-				test: /\.less$/,
-				loaders: ["style-loader", "css-loader", "less-loader"]
-			}
-		]
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+        },
+        {
+          test: /\.less$/,
+          loaders: ["style-loader", "css-loader", "less-loader"],
+        }
+      ],
     },
     output: {
         path: __dirname + '/dist',
@@ -24,4 +26,4 @@ module.exports = {
         contentBase: __dirname + '/dist',
         historyApiFallback: true
     }
-}
+};
